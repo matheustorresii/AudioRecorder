@@ -1,24 +1,354 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wiT-tI-jsu">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Audio View Controller-->
+        <scene sceneID="yDp-kB-NCc">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController storyboardIdentifier="AudioViewController" id="Fzx-BB-vsw" customClass="AudioViewController" customModule="AudioRecorder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="y0R-1b-5ku">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <slider opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="FKm-mI-Nq6">
+                                <rect key="frame" x="23" y="433" width="368" height="31"/>
+                                <color key="minimumTrackTintColor" name="RedAilurus"/>
+                                <color key="thumbTintColor" name="WhiteAilurus"/>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Roteiro trabalho de portugues" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQX-L7-7zc">
+                                <rect key="frame" x="25" y="347" width="364" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" name="RedAilurus"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="eKc-bR-XOB">
+                                <rect key="frame" x="15" y="538" width="384" height="70"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UEe-n2-ppJ">
+                                        <rect key="frame" x="0.0" y="17.5" width="74.5" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="2Ci-24-E4K"/>
+                                        </constraints>
+                                        <color key="tintColor" name="WhiteAilurus"/>
+                                        <state key="normal" image="backward.fill" catalog="system">
+                                            <color key="titleColor" name="WhiteAilurus"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vT4-nn-Odh">
+                                        <rect key="frame" x="154.5" y="0.0" width="75" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="RVQ-yc-haB"/>
+                                        </constraints>
+                                        <color key="tintColor" name="RedAilurus"/>
+                                        <state key="normal">
+                                            <imageReference key="image" image="play.fill" catalog="system" symbolScale="large" renderingMode="template"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="black"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgD-si-GoQ">
+                                        <rect key="frame" x="309.5" y="17.5" width="74.5" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="QDm-7L-BFH"/>
+                                        </constraints>
+                                        <color key="tintColor" name="WhiteAilurus"/>
+                                        <state key="normal" image="forward.fill" catalog="system"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="04:15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K5b-eM-AA5">
+                                <rect key="frame" x="15" y="478" width="384" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" name="WhiteAilurus"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="600-qR-OwY"/>
+                        <color key="backgroundColor" name="DarkBlueAilurus"/>
+                        <constraints>
+                            <constraint firstItem="FKm-mI-Nq6" firstAttribute="leading" secondItem="600-qR-OwY" secondAttribute="leading" constant="25" id="1Tr-UP-WKc"/>
+                            <constraint firstItem="QQX-L7-7zc" firstAttribute="leading" secondItem="600-qR-OwY" secondAttribute="leading" constant="25" id="974-EJ-1WV"/>
+                            <constraint firstItem="FKm-mI-Nq6" firstAttribute="top" secondItem="QQX-L7-7zc" secondAttribute="bottom" constant="50" id="AQs-zg-dD7"/>
+                            <constraint firstItem="600-qR-OwY" firstAttribute="trailing" secondItem="QQX-L7-7zc" secondAttribute="trailing" constant="25" id="GDV-tN-xpe"/>
+                            <constraint firstItem="600-qR-OwY" firstAttribute="trailing" secondItem="K5b-eM-AA5" secondAttribute="trailing" constant="15" id="Jpo-F1-KZt"/>
+                            <constraint firstItem="K5b-eM-AA5" firstAttribute="top" secondItem="FKm-mI-Nq6" secondAttribute="bottom" constant="15" id="Lbo-Tf-6RE"/>
+                            <constraint firstItem="FKm-mI-Nq6" firstAttribute="centerX" secondItem="y0R-1b-5ku" secondAttribute="centerX" id="OxA-1c-pdt"/>
+                            <constraint firstItem="eKc-bR-XOB" firstAttribute="top" secondItem="K5b-eM-AA5" secondAttribute="bottom" constant="30" id="Pgg-R4-ub9"/>
+                            <constraint firstItem="eKc-bR-XOB" firstAttribute="leading" secondItem="600-qR-OwY" secondAttribute="leading" constant="15" id="YRC-CV-qTA"/>
+                            <constraint firstItem="FKm-mI-Nq6" firstAttribute="centerY" secondItem="y0R-1b-5ku" secondAttribute="centerY" id="Yza-ys-OpB"/>
+                            <constraint firstItem="K5b-eM-AA5" firstAttribute="leading" secondItem="600-qR-OwY" secondAttribute="leading" constant="15" id="dXm-oZ-iyU"/>
+                            <constraint firstItem="600-qR-OwY" firstAttribute="trailing" secondItem="eKc-bR-XOB" secondAttribute="trailing" constant="15" id="kjj-IP-aft"/>
+                            <constraint firstItem="600-qR-OwY" firstAttribute="trailing" secondItem="FKm-mI-Nq6" secondAttribute="trailing" constant="25" id="wqM-Cj-DIK"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="timeLabel" destination="K5b-eM-AA5" id="s0m-Y9-LY1"/>
+                        <outlet property="titleLabel" destination="QQX-L7-7zc" id="1Cf-3Q-NBp"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nRb-AD-NhX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-226" y="-1515"/>
+        </scene>
+        <!--NEW-->
+        <scene sceneID="UVy-0N-D8U">
+            <objects>
+                <viewController id="OPP-Wo-Smk" customClass="AddViewController" customModule="AudioRecorder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="h8g-Aj-4do">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fbr-bZ-OXe">
+                                <rect key="frame" x="100" y="341" width="214" height="214"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1L5-wA-L0t">
+                                        <rect key="frame" x="15" y="15" width="184" height="184"/>
+                                        <state key="normal" image="circle.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="record:" destination="OPP-Wo-Smk" eventType="touchUpInside" id="1GS-Vc-emn"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="1L5-wA-L0t" secondAttribute="bottom" constant="15" id="5bd-32-Y4p"/>
+                                    <constraint firstAttribute="width" secondItem="fbr-bZ-OXe" secondAttribute="height" multiplier="1:1" id="B9V-2H-gwq"/>
+                                    <constraint firstAttribute="trailing" secondItem="1L5-wA-L0t" secondAttribute="trailing" constant="15" id="oBh-fP-zZf"/>
+                                    <constraint firstItem="1L5-wA-L0t" firstAttribute="leading" secondItem="fbr-bZ-OXe" secondAttribute="leading" constant="15" id="pDP-ws-s17"/>
+                                    <constraint firstItem="1L5-wA-L0t" firstAttribute="top" secondItem="fbr-bZ-OXe" secondAttribute="top" constant="15" id="y6z-Z7-Tpb"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="8A2-e1-4Bi"/>
+                        <color key="backgroundColor" name="DarkBlueAilurus"/>
+                        <color key="tintColor" name="RedAilurus"/>
+                        <constraints>
+                            <constraint firstItem="fbr-bZ-OXe" firstAttribute="centerX" secondItem="h8g-Aj-4do" secondAttribute="centerX" id="Vms-wl-GNd"/>
+                            <constraint firstItem="fbr-bZ-OXe" firstAttribute="centerY" secondItem="h8g-Aj-4do" secondAttribute="centerY" id="lNf-tZ-N3E"/>
+                            <constraint firstItem="fbr-bZ-OXe" firstAttribute="leading" secondItem="8A2-e1-4Bi" secondAttribute="leading" constant="100" id="oAw-BE-D1h"/>
+                            <constraint firstItem="8A2-e1-4Bi" firstAttribute="trailing" secondItem="fbr-bZ-OXe" secondAttribute="trailing" constant="100" id="tkB-VI-k44"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="NEW" id="xun-RD-HeB"/>
+                    <connections>
+                        <outlet property="buttonBorderView" destination="fbr-bZ-OXe" id="VxG-rd-t4O"/>
+                        <outlet property="recordButton" destination="1L5-wA-L0t" id="QIh-Vx-dye"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6kG-bA-K07" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="492.75362318840581" y="-1515.4017857142856"/>
+        </scene>
+        <!--About-->
+        <scene sceneID="HeC-hU-nOQ">
+            <objects>
+                <viewController id="sQ1-xu-hqV" customClass="AboutViewController" customModule="AudioRecorder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qzt-FJ-D8X">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="H1y-jF-XZz"/>
+                        <color key="backgroundColor" name="DarkBlueAilurus"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="About" image="globe" catalog="system" landscapeImage="globe" selectedImage="globe" id="Pga-yg-Z0d">
+                        <color key="badgeColor" name="RedAilurus"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WaI-xa-UdD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="913.04347826086962" y="-839.0625"/>
+        </scene>
+        <!--AUDIOS-->
+        <scene sceneID="XyH-tl-j0N">
+            <objects>
+                <viewController id="5Dx-PQ-urf" customClass="MainViewController" customModule="AudioRecorder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TZA-Ry-21U">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xh0-1U-fvc">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" name="DarkBlueAilurus"/>
+                                <color key="sectionIndexBackgroundColor" name="DarkBlueAilurus"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AudioCell" rowHeight="80" id="sxr-Pc-OoE" customClass="AudioCell" customModule="AudioRecorder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sxr-Pc-OoE" id="mC8-Kp-Ibm">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Cc-ty-pE5">
+                                                    <rect key="frame" x="25" y="11" width="58" height="58"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="9Cc-ty-pE5" secondAttribute="height" multiplier="1:1" id="cko-c2-UqN"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <state key="normal">
+                                                        <imageReference key="image" image="play.fill" catalog="system" symbolScale="large"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="playAudio:" destination="sxr-Pc-OoE" eventType="touchUpInside" id="MWS-f2-nTg"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titulo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hjb-P5-KtI">
+                                                    <rect key="frame" x="83" y="11" width="231" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <color key="textColor" name="RedAilurus"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6t-dz-qCk">
+                                                    <rect key="frame" x="83" y="35" width="231" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" name="WhiteAilurus"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pa5-Wn-ywg">
+                                                    <rect key="frame" x="314" y="11" width="80" height="58"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9MK-25-yWf">
+                                                            <rect key="frame" x="15.5" y="0.0" width="49.5" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <color key="textColor" name="WhiteAilurus"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="31/12/20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OEa-Q6-qKf">
+                                                            <rect key="frame" x="14.5" y="29" width="51.5" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <color key="textColor" name="WhiteAilurus"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="at9-q3-wCc"/>
+                                                        <constraint firstAttribute="height" constant="60" id="jCA-ks-U0d"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <color key="backgroundColor" name="DarkBlueAilurus"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="pa5-Wn-ywg" secondAttribute="trailing" id="4PT-H2-XCF"/>
+                                                <constraint firstItem="9Cc-ty-pE5" firstAttribute="leading" secondItem="mC8-Kp-Ibm" secondAttribute="leadingMargin" constant="5" id="F1o-eI-Ocr"/>
+                                                <constraint firstItem="pa5-Wn-ywg" firstAttribute="leading" secondItem="Hjb-P5-KtI" secondAttribute="trailing" id="Iu6-Vf-rGV"/>
+                                                <constraint firstItem="pa5-Wn-ywg" firstAttribute="top" secondItem="mC8-Kp-Ibm" secondAttribute="topMargin" id="LG2-ko-aCd"/>
+                                                <constraint firstItem="Q6t-dz-qCk" firstAttribute="leading" secondItem="9Cc-ty-pE5" secondAttribute="trailing" id="LVg-zN-gBP"/>
+                                                <constraint firstItem="Q6t-dz-qCk" firstAttribute="top" secondItem="Hjb-P5-KtI" secondAttribute="bottom" id="RCa-zv-9Bt"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="9Cc-ty-pE5" secondAttribute="bottom" id="WAL-0C-UU5"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="pa5-Wn-ywg" secondAttribute="bottom" id="ZrE-LG-885"/>
+                                                <constraint firstItem="pa5-Wn-ywg" firstAttribute="leading" secondItem="Q6t-dz-qCk" secondAttribute="trailing" id="eq3-fd-IQJ"/>
+                                                <constraint firstItem="Hjb-P5-KtI" firstAttribute="leading" secondItem="9Cc-ty-pE5" secondAttribute="trailing" id="hSK-uQ-hrV"/>
+                                                <constraint firstItem="Hjb-P5-KtI" firstAttribute="top" secondItem="mC8-Kp-Ibm" secondAttribute="topMargin" id="oM2-77-lPo"/>
+                                                <constraint firstItem="9Cc-ty-pE5" firstAttribute="top" secondItem="mC8-Kp-Ibm" secondAttribute="topMargin" id="waA-Py-faq"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="DarkBlueAilurus"/>
+                                        <color key="tintColor" name="RedAilurus"/>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="OEa-Q6-qKf" id="Uos-a4-tse"/>
+                                            <outlet property="lengthLabel" destination="Q6t-dz-qCk" id="Bkr-AP-1MG"/>
+                                            <outlet property="timeLabel" destination="9MK-25-yWf" id="tB7-7a-weI"/>
+                                            <outlet property="titleLabel" destination="Hjb-P5-KtI" id="CIa-AY-f8R"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="WbM-jO-2Oh"/>
+                        <color key="backgroundColor" name="DarkBlueAilurus"/>
+                        <constraints>
+                            <constraint firstItem="Xh0-1U-fvc" firstAttribute="top" secondItem="WbM-jO-2Oh" secondAttribute="top" id="92V-FH-BPO"/>
+                            <constraint firstItem="WbM-jO-2Oh" firstAttribute="trailing" secondItem="Xh0-1U-fvc" secondAttribute="trailing" id="AIS-jD-ie5"/>
+                            <constraint firstItem="WbM-jO-2Oh" firstAttribute="bottom" secondItem="Xh0-1U-fvc" secondAttribute="bottom" id="XIR-E3-3ln"/>
+                            <constraint firstItem="Xh0-1U-fvc" firstAttribute="leading" secondItem="WbM-jO-2Oh" secondAttribute="leading" id="gGu-1s-kBm"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="AUDIOS" id="i6j-Oz-FAu">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="Brc-U3-w8z">
+                            <color key="tintColor" name="RedAilurus"/>
+                            <connections>
+                                <segue destination="OPP-Wo-Smk" kind="show" id="0fj-Ay-fdg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="Xh0-1U-fvc" id="M7P-Xm-14l"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XFe-bq-CbH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="115.94202898550725" y="-839.0625"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Qj0-14-xxr">
+            <objects>
+                <tabBarController id="wiT-tI-jsu" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VG2-P0-MyL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" name="RedAilurus"/>
+                        <color key="barTintColor" name="DarkBlueAilurus"/>
+                        <color key="selectedImageTintColor" name="RedAilurus"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="gcE-Kq-UVf" kind="relationship" relationship="viewControllers" id="44f-uw-Bk6"/>
+                        <segue destination="sQ1-xu-hqV" kind="relationship" relationship="viewControllers" id="1z5-eE-mHm"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cXR-Wi-Vpe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="116" y="-135"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="1kS-dM-56x">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gcE-Kq-UVf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" landscapeImage="house.fill" selectedImage="house.fill" id="efV-cu-PMh">
+                        <color key="badgeColor" name="RedAilurus"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QNU-9r-99B">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="RedAilurus"/>
+                        <color key="barTintColor" name="DarkBlueAilurus"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="RedAilurus"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" name="RedAilurus"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5Dx-PQ-urf" kind="relationship" relationship="rootViewController" id="m3i-Gb-RYj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ffy-OQ-axy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-794.20289855072474" y="-839.0625"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="backward.fill" catalog="system" width="128" height="79"/>
+        <image name="circle.fill" catalog="system" width="128" height="121"/>
+        <image name="forward.fill" catalog="system" width="128" height="79"/>
+        <image name="globe" catalog="system" width="128" height="121"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="play.fill" catalog="system" width="116" height="128"/>
+        <namedColor name="DarkBlueAilurus">
+            <color red="0.082352941176470587" green="0.11372549019607843" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="RedAilurus">
+            <color red="0.8666666666666667" green="0.27058823529411763" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="WhiteAilurus">
+            <color red="0.94509803921568625" green="0.85882352941176465" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

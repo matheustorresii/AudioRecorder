@@ -1,7 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,10 +14,44 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mic.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="yIX-1I-E9i">
+                                <rect key="frame" x="0.0" y="240.5" width="414" height="414"/>
+                                <color key="tintColor" name="RedAilurus"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="yIX-1I-E9i" secondAttribute="height" multiplier="1:1" id="mJ4-ou-KS4"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AUDIO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="t7R-wf-TJd">
+                                <rect key="frame" x="0.0" y="187" width="414" height="54"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="45"/>
+                                <color key="textColor" name="RedAilurus"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RECORDER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yv4-52-MxB">
+                                <rect key="frame" x="0.0" y="655" width="414" height="54"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="45"/>
+                                <color key="textColor" name="RedAilurus"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" name="DarkBlueAilurus"/>
+                        <color key="tintColor" name="DarkBlueAilurus"/>
+                        <constraints>
+                            <constraint firstItem="yIX-1I-E9i" firstAttribute="top" secondItem="t7R-wf-TJd" secondAttribute="bottom" id="6Q5-pB-qs0"/>
+                            <constraint firstItem="t7R-wf-TJd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="OTv-Zf-9xj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yIX-1I-E9i" secondAttribute="trailing" id="R7Y-pm-sis"/>
+                            <constraint firstItem="yv4-52-MxB" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="RNi-hK-Zhp"/>
+                            <constraint firstItem="yIX-1I-E9i" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="S3a-9w-gt1"/>
+                            <constraint firstItem="yIX-1I-E9i" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XqB-Sx-lx8"/>
+                            <constraint firstItem="yIX-1I-E9i" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Z5y-cd-fbN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="t7R-wf-TJd" secondAttribute="trailing" id="jMX-se-NSZ"/>
+                            <constraint firstItem="yv4-52-MxB" firstAttribute="top" secondItem="yIX-1I-E9i" secondAttribute="bottom" id="rg4-w6-oue"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yv4-52-MxB" secondAttribute="trailing" id="xKj-ob-Bv7"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -22,4 +59,13 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="mic.fill" catalog="system" width="108" height="128"/>
+        <namedColor name="DarkBlueAilurus">
+            <color red="0.082352941176470587" green="0.11372549019607843" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="RedAilurus">
+            <color red="0.8666666666666667" green="0.27058823529411763" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
