@@ -11,10 +11,7 @@ class MainViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var arrayOfAudios: [Audio] = [
-        Audio(title: "Roteiro trabalho de portugues", length: "05:14", time: "18:49", date: "27/09/2020"),
-        Audio(title: "RPG", length: "4:12:55", time: "23:54", date: "28/10/2020")
-    ]
+    var arrayOfAudios: [Audio] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()

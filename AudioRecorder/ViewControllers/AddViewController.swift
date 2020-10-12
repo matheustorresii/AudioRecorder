@@ -32,14 +32,22 @@ class AddViewController: UIViewController {
     @IBAction func record(_ sender: Any) {
         isRecording = !isRecording
         if isRecording {
-            recordButton.setImage(UIImage(systemName: "square.fill"), for: .normal)
-            start = CFAbsoluteTimeGetCurrent()
+            startRecording()
         } else {
-            recordButton.setImage(UIImage(systemName: "circle.fill"), for: .normal)
-            guard let start = start else { return }
-            let end = CFAbsoluteTimeGetCurrent() - start
-            showAlert(end)
+            stopRecording()
         }
+    }
+    
+    func startRecording() {
+        recordButton.setImage(UIImage(systemName: "square.fill"), for: .normal)
+        start = CFAbsoluteTimeGetCurrent()
+    }
+    
+    func stopRecording() {
+        recordButton.setImage(UIImage(systemName: "circle.fill"), for: .normal)
+        guard let start = start else { return }
+        let end = CFAbsoluteTimeGetCurrent() - start
+        showAlert(end)
     }
     
     func showAlert(_ length: CFAbsoluteTime) {
@@ -58,7 +66,7 @@ class AddViewController: UIViewController {
                 
                 let audio = Audio(title: text,
                                   length: String(format: "%02d:%02d", Int(length / 60), Int(length.truncatingRemainder(dividingBy: 60))),
-                                   time: "\(hour):\(minutes)",
+                                   time: String(format: "%02d:%02d", hour, minutes),
                                    date: "\(day)/\(month)/\(year)")
                 
                 self.delegate?.add(audio: audio)
