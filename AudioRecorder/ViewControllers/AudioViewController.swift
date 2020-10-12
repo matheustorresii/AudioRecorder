@@ -16,6 +16,11 @@ class AudioViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupLayout()
     }
     
+    func setupLayout() {
+        titleLabel.text = audio.title
+        timeLabel.text = audio.length
+    }
 }

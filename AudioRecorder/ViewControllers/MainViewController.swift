@@ -27,6 +27,11 @@ class MainViewController: UIViewController {
         tableView.reloadData()
     }
 
+    @IBSegueAction func navigateToAddViewController(_ coder: NSCoder) -> AddViewController? {
+        let addViewController = AddViewController(coder: coder)
+        addViewController!.delegate = self
+        return addViewController
+    }
 }
 
 extension MainViewController: UITableViewDataSource {
@@ -57,5 +62,12 @@ extension MainViewController: UITableViewDelegate {
             arrayOfAudios.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
+    }
+}
+
+extension MainViewController: AddAudioDelegate {
+    func add(audio: Audio) {
+        arrayOfAudios.append(audio)
+        tableView.reloadData()
     }
 }

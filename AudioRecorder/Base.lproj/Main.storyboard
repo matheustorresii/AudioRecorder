@@ -176,15 +176,15 @@
                                 <color key="backgroundColor" name="DarkBlueAilurus"/>
                                 <color key="sectionIndexBackgroundColor" name="DarkBlueAilurus"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AudioCell" rowHeight="80" id="sxr-Pc-OoE" customClass="AudioCell" customModule="AudioRecorder" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="80"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AudioCell" rowHeight="84" id="sxr-Pc-OoE" customClass="AudioCell" customModule="AudioRecorder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="84"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sxr-Pc-OoE" id="mC8-Kp-Ibm">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Cc-ty-pE5">
-                                                    <rect key="frame" x="25" y="11" width="58" height="58"/>
+                                                    <rect key="frame" x="25" y="11" width="62" height="62"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="9Cc-ty-pE5" secondAttribute="height" multiplier="1:1" id="cko-c2-UqN"/>
                                                     </constraints>
@@ -197,28 +197,28 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titulo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hjb-P5-KtI">
-                                                    <rect key="frame" x="83" y="11" width="231" height="24"/>
+                                                    <rect key="frame" x="87" y="11" width="227" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" name="RedAilurus"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6t-dz-qCk">
-                                                    <rect key="frame" x="83" y="35" width="231" height="18"/>
+                                                    <rect key="frame" x="87" y="35" width="227" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" name="WhiteAilurus"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pa5-Wn-ywg">
-                                                    <rect key="frame" x="314" y="11" width="80" height="58"/>
+                                                    <rect key="frame" x="314" y="11" width="80" height="62"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9MK-25-yWf">
-                                                            <rect key="frame" x="15.5" y="0.0" width="49.5" height="29"/>
+                                                            <rect key="frame" x="15.5" y="0.0" width="49.5" height="31"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <color key="textColor" name="WhiteAilurus"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="31/12/20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OEa-Q6-qKf">
-                                                            <rect key="frame" x="14.5" y="29" width="51.5" height="29"/>
+                                                            <rect key="frame" x="14.5" y="31" width="51.5" height="31"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="textColor" name="WhiteAilurus"/>
                                                             <nil key="highlightedColor"/>
@@ -271,7 +271,7 @@
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="Brc-U3-w8z">
                             <color key="tintColor" name="RedAilurus"/>
                             <connections>
-                                <segue destination="OPP-Wo-Smk" kind="show" id="0fj-Ay-fdg"/>
+                                <segue destination="OPP-Wo-Smk" kind="show" destinationCreationSelector="navigateToAddViewController:" id="gvS-zr-UtX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
