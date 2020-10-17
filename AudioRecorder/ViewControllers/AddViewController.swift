@@ -12,9 +12,9 @@ class AddViewController: UIViewController, AVAudioRecorderDelegate {
 
     @IBOutlet weak var buttonBorderView: UIView! {
         didSet {
-            buttonBorderView.layer.cornerRadius = view.frame.width / 5.5
+            buttonBorderView.layer.borderWidth = 3
             buttonBorderView.layer.borderColor = CGColor(red: 255, green: 255, blue: 255, alpha: 1.0)
-            buttonBorderView.layer.borderWidth = 5
+            buttonBorderView.layer.cornerRadius = 75
         }
     }
     @IBOutlet weak var recordButton: UIButton!
@@ -27,11 +27,10 @@ class AddViewController: UIViewController, AVAudioRecorderDelegate {
     }
 
     @IBAction func record(_ sender: Any) {
-        isRecording = !isRecording
-        if isRecording {
-            startRecording()
-        } else {
+        if AudioBackend.sharedInstance.isRecording {
             stopRecording()
+        } else {
+            startRecording()
         }
     }
 

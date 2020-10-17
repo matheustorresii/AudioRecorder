@@ -120,10 +120,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fbr-bZ-OXe">
-                                <rect key="frame" x="100" y="341" width="214" height="214"/>
+                                <rect key="frame" x="132" y="373" width="150" height="150"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1L5-wA-L0t">
-                                        <rect key="frame" x="15" y="15" width="184" height="184"/>
+                                        <rect key="frame" x="15" y="15" width="120" height="120"/>
                                         <state key="normal" image="circle.fill" catalog="system"/>
                                         <connections>
                                             <action selector="record:" destination="OPP-Wo-Smk" eventType="touchUpInside" id="1GS-Vc-emn"/>
@@ -131,11 +131,13 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="1L5-wA-L0t" secondAttribute="bottom" constant="15" id="5bd-32-Y4p"/>
                                     <constraint firstAttribute="width" secondItem="fbr-bZ-OXe" secondAttribute="height" multiplier="1:1" id="B9V-2H-gwq"/>
-                                    <constraint firstAttribute="trailing" secondItem="1L5-wA-L0t" secondAttribute="trailing" constant="15" id="oBh-fP-zZf"/>
-                                    <constraint firstItem="1L5-wA-L0t" firstAttribute="leading" secondItem="fbr-bZ-OXe" secondAttribute="leading" constant="15" id="pDP-ws-s17"/>
-                                    <constraint firstItem="1L5-wA-L0t" firstAttribute="top" secondItem="fbr-bZ-OXe" secondAttribute="top" constant="15" id="y6z-Z7-Tpb"/>
+                                    <constraint firstAttribute="width" constant="150" id="IPf-fk-XEz"/>
+                                    <constraint firstAttribute="height" constant="150" id="Ivc-st-4Ue"/>
+                                    <constraint firstAttribute="trailing" secondItem="1L5-wA-L0t" secondAttribute="trailing" constant="15" id="JKf-A6-7Z3"/>
+                                    <constraint firstItem="1L5-wA-L0t" firstAttribute="leading" secondItem="fbr-bZ-OXe" secondAttribute="leading" constant="15" id="Lla-aF-Sfa"/>
+                                    <constraint firstAttribute="bottom" secondItem="1L5-wA-L0t" secondAttribute="bottom" constant="15" id="bLQ-Gd-FZR"/>
+                                    <constraint firstItem="1L5-wA-L0t" firstAttribute="top" secondItem="fbr-bZ-OXe" secondAttribute="top" constant="15" id="xpQ-7z-ire"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -145,8 +147,6 @@
                         <constraints>
                             <constraint firstItem="fbr-bZ-OXe" firstAttribute="centerX" secondItem="h8g-Aj-4do" secondAttribute="centerX" id="Vms-wl-GNd"/>
                             <constraint firstItem="fbr-bZ-OXe" firstAttribute="centerY" secondItem="h8g-Aj-4do" secondAttribute="centerY" id="lNf-tZ-N3E"/>
-                            <constraint firstItem="fbr-bZ-OXe" firstAttribute="leading" secondItem="8A2-e1-4Bi" secondAttribute="leading" constant="100" id="oAw-BE-D1h"/>
-                            <constraint firstItem="8A2-e1-4Bi" firstAttribute="trailing" secondItem="fbr-bZ-OXe" secondAttribute="trailing" constant="100" id="tkB-VI-k44"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="NEW" id="xun-RD-HeB"/>

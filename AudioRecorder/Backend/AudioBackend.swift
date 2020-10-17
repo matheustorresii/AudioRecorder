@@ -19,6 +19,7 @@ class AudioBackend {
 
     private(set) var microphoneAllowed = false
     private(set) var isPlaying = false
+    private(set) var isRecording = false
     
     private let settings = [ AVFormatIDKey : kAudioFormatAppleLossless,
                   AVEncoderAudioQualityKey : AVAudioQuality.low.rawValue,
@@ -111,6 +112,7 @@ class AudioBackend {
         audioRecorder.prepareToRecord()
         audioRecorder.record()
         try! audioSession.setActive(true)
+        isRecording = true
     }
     
     func deleteRecording(with identifier: String) {
@@ -123,11 +125,13 @@ class AudioBackend {
         audioRecorder.stop()
         audioRecorder = nil
         try! audioSession.setActive(false)
+        isRecording = false
     }
 
     private func getAudioPath(with identifier: String) -> URL {
         let dirPath = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
         let audioURL = dirPath.appendingPathComponent("\(identifier).m4a")
+        print(audioURL)
         return audioURL
     }
 }
