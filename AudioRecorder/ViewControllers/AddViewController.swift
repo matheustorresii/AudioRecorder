@@ -8,27 +8,25 @@
 import UIKit
 import AVFoundation
 
-class AddViewController: UIViewController {
-    
-    var delegate: AddAudioDelegate?
-    
+class AddViewController: UIViewController, AVAudioRecorderDelegate {
+
     @IBOutlet weak var buttonBorderView: UIView!
     @IBOutlet weak var recordButton: UIButton!
-    
+
     var isRecording: Bool = false
-    var start: CFAbsoluteTime? = nil
-    
+    var start: CFAbsoluteTime!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
     }
-    
+
     func setupLayout() {
         buttonBorderView.layer.cornerRadius = view.frame.width / 5.5
         buttonBorderView.layer.borderColor = CGColor(red: 255, green: 255, blue: 255, alpha: 1.0)
         buttonBorderView.layer.borderWidth = 5
     }
-    
+
     @IBAction func record(_ sender: Any) {
         isRecording = !isRecording
         if isRecording {
@@ -37,27 +35,32 @@ class AddViewController: UIViewController {
             stopRecording()
         }
     }
-    
+
     func startRecording() {
         recordButton.setImage(UIImage(systemName: "square.fill"), for: .normal)
         start = CFAbsoluteTimeGetCurrent()
+        let newIdentifier = Int(start)
+        AudioBackend.sharedInstance.startRecording(with: "\(newIdentifier)", from: self)
     }
-    
+
     func stopRecording() {
-        recordButton.setImage(UIImage(systemName: "circle.fill"), for: .normal)
         guard let start = start else { return }
+        recordButton.setImage(UIImage(systemName: "circle.fill"), for: .normal)
         let end = CFAbsoluteTimeGetCurrent() - start
+        AudioBackend.sharedInstance.stopRecording()
         showAlert(end)
     }
-    
+
     func showAlert(_ length: CFAbsoluteTime) {
         let alert = UIAlertController(title: "Novo áudio", message: "Você quer adicionar um novo áudio?", preferredStyle: .alert)
         
+        let newIdentifier = Int(self.start)
+
         let actionAdd = UIAlertAction(title: "Salvar", style: .default) { _ in
-            if let textField = alert.textFields?.first, let text = textField.text, text != "" {
+            if let textField = alert.textFields?.first, let text = textField.text {
                 let date = Date()
                 let calendar = Calendar.current
-                
+
                 let day = calendar.component(.day, from: date)
                 let month = calendar.component(.month, from: date)
                 let year = calendar.component(.year, from: date)
@@ -65,20 +68,24 @@ class AddViewController: UIViewController {
                 let minutes = calendar.component(.minute, from: date)
                 
                 let audio = Audio(title: text,
-                                  length: String(format: "%02d:%02d", Int(length / 60), Int(length.truncatingRemainder(dividingBy: 60))),
+                                 length: String(format: "%02d:%02d", Int(length / 60), Int(length.truncatingRemainder(dividingBy: 60))),
                                    time: String(format: "%02d:%02d", hour, minutes),
-                                   date: "\(day)/\(month)/\(year)")
-                
-                self.delegate?.add(audio: audio)
+                                   date: "\(day)/\(month)/\(year)",
+                                   identifier: "\(newIdentifier)")
+                AudioBackend.sharedInstance.addToArrayOfAudios(audio: audio)
                 self.navigationController!.popViewController(animated: true)
             }
         }
         
+        let actionCancel = UIAlertAction(title: "Cancelar", style: .destructive) { _ in
+            AudioBackend.sharedInstance.deleteRecording(with: "\(newIdentifier)")
+        }
+
         alert.addAction(actionAdd)
-        alert.addAction(UIAlertAction(title: "Cancelar", style: .destructive, handler: nil))
-        
+        alert.addAction(actionCancel)
+
         alert.addTextField()
-        
+
         present(alert, animated: true, completion: nil)
     }
 }

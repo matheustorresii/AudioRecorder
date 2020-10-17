@@ -52,6 +52,9 @@
                                             <imageReference key="image" image="play.fill" catalog="system" symbolScale="large" renderingMode="template"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="black"/>
                                         </state>
+                                        <connections>
+                                            <action selector="play:" destination="Fzx-BB-vsw" eventType="touchUpInside" id="NTK-6i-TaJ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgD-si-GoQ">
                                         <rect key="frame" x="309.5" y="17.5" width="74.5" height="35"/>
@@ -89,7 +92,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="actionButton" destination="vT4-nn-Odh" id="AKQ-3j-G6a"/>
                         <outlet property="timeLabel" destination="K5b-eM-AA5" id="s0m-Y9-LY1"/>
+                        <outlet property="timeSlider" destination="FKm-mI-Nq6" id="fkD-jb-E9Y"/>
                         <outlet property="titleLabel" destination="QQX-L7-7zc" id="1Cf-3Q-NBp"/>
                     </connections>
                 </viewController>

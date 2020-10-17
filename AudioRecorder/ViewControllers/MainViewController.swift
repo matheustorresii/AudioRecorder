@@ -10,45 +10,40 @@ import UIKit
 class MainViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    
-    var arrayOfAudios: [Audio] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         tableView.reloadData()
     }
 
     @IBSegueAction func navigateToAddViewController(_ coder: NSCoder) -> AddViewController? {
         let addViewController = AddViewController(coder: coder)
-        addViewController!.delegate = self
         return addViewController
     }
 }
 
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        arrayOfAudios.count
+        AudioBackend.sharedInstance.arrayOfAudios.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "AudioCell") as? AudioCell else {
-            fatalError("Couldn't create cell")
-        }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "AudioCell") as? AudioCell else { fatalError("Couldn't create cell") }
         
-        cell.titleLabel.text = arrayOfAudios[indexPath.row].title
-        cell.lengthLabel.text = arrayOfAudios[indexPath.row].length
-        cell.timeLabel.text = arrayOfAudios[indexPath.row].time
-        cell.dateLabel.text = arrayOfAudios[indexPath.row].date
-        
+        cell.titleLabel.text = AudioBackend.sharedInstance.arrayOfAudios[indexPath.row].title
+        cell.lengthLabel.text = AudioBackend.sharedInstance.arrayOfAudios[indexPath.row].length
+        cell.timeLabel.text = AudioBackend.sharedInstance.arrayOfAudios[indexPath.row].time
+        cell.dateLabel.text = AudioBackend.sharedInstance.arrayOfAudios[indexPath.row].date
+
         cell.parentController = self
-        cell.audio = arrayOfAudios[indexPath.row]
-        
+        cell.audio = AudioBackend.sharedInstance.arrayOfAudios[indexPath.row]
+
         return cell
     }
 }
@@ -56,15 +51,8 @@ extension MainViewController: UITableViewDataSource {
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            arrayOfAudios.remove(at: indexPath.row)
+            AudioBackend.sharedInstance.removeFromArrayOfAudios(at: indexPath)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
-    }
-}
-
-extension MainViewController: AddAudioDelegate {
-    func add(audio: Audio) {
-        arrayOfAudios.append(audio)
-        tableView.reloadData()
     }
 }

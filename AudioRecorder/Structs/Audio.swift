@@ -7,9 +7,10 @@
 
 import UIKit
 
-struct Audio {
+struct Audio: Codable {
     let title: String
     let length: String
     let time: String
     let date: String
+    let identifier: String
 }
