@@ -51,6 +51,8 @@ extension MainViewController: UITableViewDataSource {
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            let audio = AudioBackend.sharedInstance.arrayOfAudios[indexPath.row]
+            AudioBackend.sharedInstance.deleteRecording(with: audio.identifier)
             AudioBackend.sharedInstance.removeFromArrayOfAudios(at: indexPath)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
