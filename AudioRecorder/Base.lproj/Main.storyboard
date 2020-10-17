@@ -18,10 +18,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <slider opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="FKm-mI-Nq6">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="FKm-mI-Nq6">
                                 <rect key="frame" x="23" y="433" width="368" height="31"/>
                                 <color key="minimumTrackTintColor" name="RedAilurus"/>
                                 <color key="thumbTintColor" name="WhiteAilurus"/>
+                                <connections>
+                                    <action selector="changedTime:" destination="Fzx-BB-vsw" eventType="valueChanged" id="Odp-dI-bcE"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Audio Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQX-L7-7zc">
                                 <rect key="frame" x="25" y="347" width="364" height="36"/>

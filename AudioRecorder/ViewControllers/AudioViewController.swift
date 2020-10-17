@@ -6,42 +6,77 @@
 //
 
 import UIKit
+import AVFoundation
 
-class AudioViewController: UIViewController {
+class AudioViewController: UIViewController, AVAudioPlayerDelegate {
     
     var audio: Audio!
+    var time: TimeInterval = 0
     
-    var isPlaying: Bool = false
-    
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel! {
+        didSet {
+            titleLabel.text = audio.title
+        }
+    }
+
+    @IBOutlet weak var timeLabel: UILabel! {
+        didSet {
+            timeLabel.text = audio.length
+        }
+    }
     
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var timeSlider: UISlider!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupLayout()
+        AudioBackend.sharedInstance.setupAudio(with: audio.identifier, from: self)
+        let audioDuration = AudioBackend.sharedInstance.getAudioPlayerTotalDuration()
+        timeSlider.maximumValue = Float(audioDuration)
+        time = AudioBackend.sharedInstance.getAudioPlayerCurrentTime()
+        Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateSlider(_:)), userInfo: nil, repeats: true)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        AudioBackend.sharedInstance.setupAudio(with: audio.identifier)
-    }
-    
-    func setupLayout() {
-        titleLabel.text = audio.title
-        timeLabel.text = audio.length
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        AudioBackend.sharedInstance.stop()
     }
     
     @IBAction func play(_ sender: Any) {
-        if isPlaying {
-            actionButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
-            AudioBackend.sharedInstance.pause()
+        if AudioBackend.sharedInstance.isPlaying {
+            pause()
         } else {
-            actionButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
-            AudioBackend.sharedInstance.start()
+            play()
         }
-        isPlaying = !isPlaying
+    }
+    
+    func pause() {
+        actionButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+        AudioBackend.sharedInstance.pause()
+        time = AudioBackend.sharedInstance.getAudioPlayerCurrentTime()
+    }
+    
+    func play() {
+        actionButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+        AudioBackend.sharedInstance.play(at: time)
+        if AudioBackend.sharedInstance.getAudioPlayerCurrentTime() == 0.0 {
+            time = 0.0
+            timeSlider.value = 0.0
+        }
+    }
+    
+    @objc func updateSlider(_ timer: Timer) {
+        if AudioBackend.sharedInstance.isPlaying {
+            timeSlider.value += 0.1
+        }
+    }
+    
+    @IBAction func changedTime(_ slider: UISlider) {
+        pause()
+        time = TimeInterval(slider.value)
+    }
+    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        pause()
     }
 }

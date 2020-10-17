@@ -18,6 +18,7 @@ class AudioBackend {
     private var audioRecorder: AVAudioRecorder!
 
     private(set) var microphoneAllowed = false
+    private(set) var isPlaying = false
     
     private let settings = [ AVFormatIDKey : kAudioFormatAppleLossless,
                   AVEncoderAudioQualityKey : AVAudioQuality.low.rawValue,
@@ -30,7 +31,7 @@ class AudioBackend {
         getFromUserDefaults()
     }
 
-    func initAudio() {
+    private func initAudio() {
         audioSession.requestRecordPermission { allowed in if allowed { self.microphoneAllowed = allowed } }
         do {
             try audioSession.setCategory(.playAndRecord, mode: .default)
@@ -39,16 +40,16 @@ class AudioBackend {
         }
     }
     
+    private func updateUserDefaults() {
+        if let data = try? PropertyListEncoder().encode(arrayOfAudios) {
+            UserDefaults.standard.set(data, forKey: "arrayOfAudios")
+        }
+    }
+    
     func getFromUserDefaults() {
         if let data = UserDefaults.standard.data(forKey: "arrayOfAudios") {
             let newArray = try! PropertyListDecoder().decode([Audio].self, from: data)
             arrayOfAudios = newArray
-        }
-    }
-    
-    func updateUserDefaults() {
-        if let data = try? PropertyListEncoder().encode(arrayOfAudios) {
-            UserDefaults.standard.set(data, forKey: "arrayOfAudios")
         }
     }
 
@@ -62,24 +63,42 @@ class AudioBackend {
         updateUserDefaults()
     }
     
-    func setupAudio(with identifier: String) {
+    func setupAudio(with identifier: String, from viewController: AVAudioPlayerDelegate) {
         let audioFileName = getAudioPath(with: identifier)
         
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: audioFileName)
             audioPlayer.prepareToPlay()
+            audioPlayer.delegate = viewController
+            audioPlayer.volume = 1.0
             try! audioSession.setActive(true)
         } catch {
             fatalError("Couldn't setup audio")
         }
     }
-
-    func start() {
+    
+    func play(at time: TimeInterval) {
+        audioPlayer.currentTime = time
         audioPlayer.play()
+        isPlaying = true
     }
     
     func pause() {
         audioPlayer.pause()
+        isPlaying = false
+    }
+    
+    func stop() {
+        pause()
+        audioPlayer.stop()
+    }
+    
+    func getAudioPlayerCurrentTime() -> TimeInterval {
+        audioPlayer.currentTime
+    }
+    
+    func getAudioPlayerTotalDuration() -> TimeInterval {
+        audioPlayer.duration
     }
 
     func startRecording(with identifier: String, from viewController: AVAudioRecorderDelegate) {
