@@ -44,6 +44,9 @@
                                         <state key="normal" image="backward.fill" catalog="system">
                                             <color key="titleColor" name="WhiteAilurus"/>
                                         </state>
+                                        <connections>
+                                            <action selector="goBackward:" destination="Fzx-BB-vsw" eventType="touchUpInside" id="XCd-xW-yGj"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vT4-nn-Odh">
                                         <rect key="frame" x="154.5" y="0.0" width="75" height="70"/>
@@ -66,6 +69,9 @@
                                         </constraints>
                                         <color key="tintColor" name="WhiteAilurus"/>
                                         <state key="normal" image="forward.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="goForward:" destination="Fzx-BB-vsw" eventType="touchUpInside" id="Grd-2y-iBp"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>

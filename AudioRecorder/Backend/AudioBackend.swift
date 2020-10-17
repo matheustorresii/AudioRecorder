@@ -93,11 +93,11 @@ class AudioBackend {
         audioPlayer.stop()
     }
     
-    func getAudioPlayerCurrentTime() -> TimeInterval {
+    func getCurrentTime() -> TimeInterval {
         audioPlayer.currentTime
     }
     
-    func getAudioPlayerTotalDuration() -> TimeInterval {
+    func getTotalDuration() -> TimeInterval {
         audioPlayer.duration
     }
 
@@ -128,7 +128,6 @@ class AudioBackend {
     private func getAudioPath(with identifier: String) -> URL {
         let dirPath = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
         let audioURL = dirPath.appendingPathComponent("\(identifier).m4a")
-        print(audioURL)
         return audioURL
     }
 }
