@@ -51,10 +51,19 @@ extension MainViewController: UITableViewDataSource {
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let audio = AudioBackend.sharedInstance.arrayOfAudios[indexPath.row]
-            AudioBackend.sharedInstance.deleteRecording(with: audio.identifier)
-            AudioBackend.sharedInstance.removeFromArrayOfAudios(at: indexPath)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            let alert = UIAlertController(title: "Are you sure?", message: "Do you want to delete this audio?", preferredStyle: .alert)
+            
+            let confirmAction = UIAlertAction(title: "Confirm", style: .destructive) { _ in
+                let audio = AudioBackend.sharedInstance.arrayOfAudios[indexPath.row]
+                AudioBackend.sharedInstance.deleteRecording(with: audio.identifier)
+                AudioBackend.sharedInstance.removeFromArrayOfAudios(at: indexPath)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+            
+            alert.addAction(confirmAction)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .default))
+            
+            present(alert, animated: true)
         }
     }
 }

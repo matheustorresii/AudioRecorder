@@ -34,12 +34,20 @@ class AudioViewController: UIViewController, AVAudioPlayerDelegate {
         let audioDuration = AudioBackend.sharedInstance.getTotalDuration()
         timeSlider.maximumValue = Float(audioDuration)
         time = AudioBackend.sharedInstance.getCurrentTime()
-        Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateSlider(_:)), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 0.1,
+                                   target: self,
+                                 selector: #selector(updateSlider(_:)),
+                                 userInfo: nil,
+                                  repeats: true)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         AudioBackend.sharedInstance.stop()
+    }
+    
+    @IBAction func close(_ sender: Any) {
+        self.dismiss(animated: true)
     }
     
     @IBAction func play(_ sender: Any) {

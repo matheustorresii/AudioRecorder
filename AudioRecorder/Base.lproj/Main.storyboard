@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -81,6 +81,20 @@
                                 <color key="textColor" name="WhiteAilurus"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bWa-Hk-gjn">
+                                <rect key="frame" x="24" y="108" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Bvp-gn-sQa"/>
+                                    <constraint firstAttribute="height" constant="40" id="FQb-FB-n4g"/>
+                                </constraints>
+                                <color key="tintColor" name="RedAilurus"/>
+                                <state key="normal" image="xmark" catalog="system">
+                                    <color key="titleColor" name="RedAilurus"/>
+                                </state>
+                                <connections>
+                                    <action selector="close:" destination="Fzx-BB-vsw" eventType="touchUpInside" id="Znf-kG-PRv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="600-qR-OwY"/>
                         <color key="backgroundColor" name="DarkBlueAilurus"/>
@@ -97,6 +111,8 @@
                             <constraint firstItem="FKm-mI-Nq6" firstAttribute="centerY" secondItem="y0R-1b-5ku" secondAttribute="centerY" id="Yza-ys-OpB"/>
                             <constraint firstItem="K5b-eM-AA5" firstAttribute="leading" secondItem="600-qR-OwY" secondAttribute="leading" constant="15" id="dXm-oZ-iyU"/>
                             <constraint firstItem="600-qR-OwY" firstAttribute="trailing" secondItem="eKc-bR-XOB" secondAttribute="trailing" constant="15" id="kjj-IP-aft"/>
+                            <constraint firstItem="bWa-Hk-gjn" firstAttribute="leading" secondItem="600-qR-OwY" secondAttribute="leading" constant="24" id="s3B-WC-Vbm"/>
+                            <constraint firstItem="bWa-Hk-gjn" firstAttribute="top" secondItem="600-qR-OwY" secondAttribute="top" constant="64" id="vkM-0n-h4Z"/>
                             <constraint firstItem="600-qR-OwY" firstAttribute="trailing" secondItem="FKm-mI-Nq6" secondAttribute="trailing" constant="25" id="wqM-Cj-DIK"/>
                         </constraints>
                     </view>
@@ -355,6 +371,7 @@
         <image name="globe" catalog="system" width="128" height="121"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="DarkBlueAilurus">
             <color red="0.082352941176470587" green="0.11372549019607843" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
